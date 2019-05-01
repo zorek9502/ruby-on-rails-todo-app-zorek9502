@@ -1,0 +1,8 @@
+<div class="my-4">
+<%= simple_form_for @task_list do |f| %>
+  <%= f.input :title, required: true %>
+  <%= f.button :submit, class: "btn-info" %>
+<% end %>
+</div>
+
+<%= @task_list.to_json %>

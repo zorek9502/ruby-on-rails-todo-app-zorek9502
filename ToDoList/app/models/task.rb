@@ -1,3 +1,4 @@
 class Task < ApplicationRecord
-  belongs_to :tasks_list
+  belongs_to :task_list
+  validates :description, presence: true
 end

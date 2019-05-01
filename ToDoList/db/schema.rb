@@ -33,22 +33,22 @@ ActiveRecord::Schema.define(version: 2019_04_22_234401) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "tasks", force: :cascade do |t|
-    t.boolean "completed"
-    t.string "description"
-    t.integer "tasks_list_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["tasks_list_id"], name: "index_tasks_on_tasks_list_id"
-  end
-
-  create_table "tasks_lists", force: :cascade do |t|
+  create_table "task_lists", force: :cascade do |t|
     t.integer "user_id"
     t.string "title"
-    t.boolean "completed"
+    t.boolean "completed", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_tasks_lists_on_user_id"
+    t.index ["user_id"], name: "index_task_lists_on_user_id"
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.boolean "completed", default: false
+    t.string "description"
+    t.integer "task_list_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["task_list_id"], name: "index_tasks_on_task_list_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 2019_04_22_234401) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name"
+    t.string "username"
     t.string "description"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

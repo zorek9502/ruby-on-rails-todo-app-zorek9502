@@ -1,0 +1,29 @@
+
+<% if user_signed_in? %>
+    <div class="jumbotron jumbotron-fluid my-4">
+      <div class="container">
+        <h1 class="display-4">Fluid jumbotron</h1>
+        <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+      </div>
+    </div>
+    
+    <% else %>
+
+    <div class="jumbotron jumbotron-fluid my-4 bg-dark text-white">
+      <div class="container">        
+        <h1 class="display-4 my-4">¡Hello!</h1> 
+        
+        <h3 class="display-6 my-4">Welcome to TO DO List App</h3> 
+        <p class="lead">Already have an account? Log in</p>
+        <%= link_to 'Log In', user_session_path, class: 'nav-link btn btn-lg btn-block btn-success my-4' %>
+
+
+        <p class="lead">Don't have an account? sign up.</p>
+        <%= link_to 'Sign Up', new_user_registration_path, class: 'nav-link btn btn-lg btn-block btn-primary' %>
+
+
+      </div>
+    </div>
+
+<% end %>
+

@@ -1,0 +1,7 @@
+<div class="my-4">
+<%= simple_form_for @task_list  do |f| %>
+  <%= f.input :title, required: true %>
+  <%= f.button :submit, 'Save', class: "btn-info" %>
+<% end %>
+</div>
+
