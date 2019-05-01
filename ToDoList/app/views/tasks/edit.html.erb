@@ -1,2 +1,16 @@
 <h1>Tasks#edit</h1>
 <p>Find me in app/views/tasks/edit.html.erb</p>
+
+<div class="my-4">
+<%= simple_form_for @task, url:task_list_task_path do |f| %>
+  <%= f.input :description, required: true %>
+  <span class="font-weight-lighter mx-2">Completed</span>
+  <%= f.input_field :completed, as: :boolean, boolean_style: :inline %>
+  <br>
+  <div class="d-flex justify-content-around">
+  <%= f.button :submit, 'Save', class: "btn-info" %>
+<% end %>
+  <%= link_to "Delete", task_list_task_path(params[:task_list_id], @task.id), method: :delete, data: {confirm:"Are you sure?"}, class: "btn btn-outline-danger" %>
+  </div>
+</div>
+

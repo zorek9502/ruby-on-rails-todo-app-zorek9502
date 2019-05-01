@@ -6,7 +6,8 @@
     <% @tasks.each do |task|%>
     <ul class="list-group text-left">
         <li class="list-group-item  d-flex justify-content-between align-items-center lead mt-3">
-            <%= link_to task.description, task_list_task_path(task),class:"list-group-item-action"%>
+            <%= task.description%>
+            <%= link_to "Edit",  edit_task_list_task_path(@task_list, task), class: "btn btn-info" %>
         </li>
     </ul>
     <%end%>

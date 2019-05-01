@@ -40,7 +40,7 @@ class TaskListsController < ApplicationController
     if @task_list.save
       redirect_to task_lists_path
     else
-      render :new
+      render :edit
     end
   end
 

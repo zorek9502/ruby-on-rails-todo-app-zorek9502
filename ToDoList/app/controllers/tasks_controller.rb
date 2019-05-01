@@ -13,9 +13,15 @@ class TasksController < ApplicationController
   end
 
   def destroy
+    @task_list_id = params[:task_list_id]
+    @task = Task.find(params[:id])
+    @task.delete
+    redirect_to task_list_path(@task_list_id)
   end
 
   def edit
+    @task = Task.find(params[:id])
+    @task_list_id = params[:task_list_id]
   end
 
   def index
@@ -27,9 +33,17 @@ class TasksController < ApplicationController
   end
 
   def show
+    @task = Task.find(params[:id])
   end
 
   def update
+    @task = Task.find(params[:id])
+    @task.update(completed: params[:task][:completed], description: params[:task][:description])
+    if @task.save
+      redirect_to task_list_path(params[:task_list_id])
+    else
+      render :edit
+    end
   end
 
   def require_login
