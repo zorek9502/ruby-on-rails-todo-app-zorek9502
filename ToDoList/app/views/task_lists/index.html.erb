@@ -1,8 +1,7 @@
 <div class="jumbotron my-4">
   <h1 class="display-4"><%= current_user.username %>  To Do Lists</h1>
   <%= link_to  "New List", new_task_list_path, class: "btn btn-primary mb-5 " %>
-  <%# For para todas las listas %>
-  <%@todo_lists.each do |lista| %>
+  <% @todo_lists.each do |lista| %>
   <ul class="list-group">
     <li class="list-group-item  d-flex justify-content-between align-items-center lead mt-3">
        <%= link_to lista.title, task_list_path(lista),class:"list-group-item-action"%>       

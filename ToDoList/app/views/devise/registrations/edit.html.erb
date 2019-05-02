@@ -18,6 +18,16 @@
     <%= f.text_area :description, autofocus: true %>
   </div>
 
+  <div class="field">    
+    <% if resource.avatar.attached? %>
+      <%= image_tag resource.avatar.variant(resize: "150x150!"), class:"rounded-circle" %>
+    <% else %>
+      <%= image_tag "default-profile-picture.jpg", width:150, height:150, class:"rounded-circle"%>
+    <% end %>    
+    <%= f.label :avatar %><br />
+    <%= f.file_field :avatar %>
+  </div>
+
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
