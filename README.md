@@ -13,3 +13,10 @@ Num | Feature | Notes
 5 | Users should receive weekly email including pending tasks | Using emails and BackgroundJobs with Sidekiq and Redis
 6 | Users can update your profile: name, email, description and photo | Poto must be uploaded, you could use paperclip for this task
 7 | The app must include unit tests with Rspec and integration with Capybara |
+
+## Requisites and how to run
+
+- Install GraphicsMagick in order to visualize the profiles pictures
+- run bundle install
+- run rails s
+- In your browser enter to "http://localhost:3000"

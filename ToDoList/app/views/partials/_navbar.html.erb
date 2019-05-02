@@ -1,6 +1,10 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <% if user_signed_in? %>
-    <%= image_tag "default-profile-picture.jpg", width:30, height:30, class:"rounded-circle"%>
+    <% if current_user.avatar.attached? %>
+      <%= image_tag current_user.avatar.variant(resize: "50!"), class:"rounded-circle" %>
+    <% else %>
+      <%= image_tag "default-profile-picture.jpg", width:30, height:30, class:"rounded-circle"%>
+    <% end %> 
     <a class="navbar-brand mx-2 text-white"><%= current_user.username %></a>      
     <% end %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
