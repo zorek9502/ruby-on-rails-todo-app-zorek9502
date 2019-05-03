@@ -23,6 +23,12 @@ class TaskListsController < ApplicationController
 
   def index
     @todo_lists = TaskList.where(user_id: current_user.id)
+    @todo_list_task = get_list_pdf()
+    respond_to do |format|
+      format.html
+      format.json
+      format.pdf { render template: "task_lists/task_lists", pdf: "Task_lists", layout: "pdf.html" }
+    end
   end
 
   def new
@@ -49,5 +55,15 @@ class TaskListsController < ApplicationController
       flash[:error] = "You must be logged in to access this section"
       redirect_to profiles_path
     end
+  end
+
+  def get_list_pdf
+    @todo_lists = TaskList.where(user_id: current_user.id).to_a #Obtiene las listas del usuario
+    list_and_tasks = {}
+    @todo_lists.each do |lista|
+      tasks_descriptions = Task.joins(:task_list).where(task_list_id: lista.id).pluck(:description)
+      list_and_tasks[lista.title] = tasks_descriptions
+    end
+    return list_and_tasks
   end
 end
