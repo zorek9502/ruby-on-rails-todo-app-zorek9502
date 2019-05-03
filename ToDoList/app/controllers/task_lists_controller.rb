@@ -67,3 +67,6 @@ class TaskListsController < ApplicationController
     return list_and_tasks
   end
 end
+
+#Query para obtener lista y tareas pendientes
+#tasks_descriptions = Task.joins(:task_list).where(task_list_id: lista.id, completed: false).pluck(:description)

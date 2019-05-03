@@ -1,0 +1,14 @@
+<div class="container">
+    <h1 class="font-weight-bolder my-4" >To Do's Lists</h1>
+    <% @todo_list_task.each_with_index do |list, index| %>
+        <h1 class="display-4 mt-4"><%= list[0]%></h1>
+        <hr/>
+        <ul class="list-group text-left">
+            <% list[1].each do |task| %>
+                <li class="list-group-item list-group-item-dark d-flex justify-content-between align-items-center lead my-3 ">
+                     <%= task %>       
+                </li>
+            <% end %>
+        </ul>
+    <% end %>
+</div>
