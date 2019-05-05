@@ -1,11 +1,14 @@
+#require "sidekiq-scheduler"
+
 class TodosWeeklyReportJob < ApplicationJob
-  queue_as :default
+  #include Sidekiq::Worker
+  #sidekiq_options queue: :default
 
   def perform(user_id)
     user = User.find(user_id)
     #todos_report = TodosWeeklyReport.generate(user)
     todos_report = generate(user)
-    TodosWeeklyReportMailer.todos_report(user, todos_report).deliver_now
+    TodosWeeklyReportMailer.todos_report(user, todos_report).deliver_later
   end
 
   private

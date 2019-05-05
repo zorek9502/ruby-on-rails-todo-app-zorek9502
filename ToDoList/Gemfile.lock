@@ -88,6 +88,7 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.5)
+    connection_pool (2.2.2)
     crass (1.0.4)
     devise (4.6.2)
       bcrypt (~> 3.0)
@@ -96,8 +97,13 @@ GEM
       responders
       warden (~> 1.2.3)
     erubi (1.8.0)
+    et-orbi (1.2.1)
+      tzinfo
     execjs (2.7.0)
     ffi (1.10.0-x64-mingw32)
+    fugit (1.2.1)
+      et-orbi (~> 1.1, >= 1.1.8)
+      raabro (~> 1.1)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     graphicsmagick (1.0.6)
@@ -138,7 +144,10 @@ GEM
     popper_js (1.14.5)
     public_suffix (3.0.3)
     puma (3.12.1)
+    raabro (1.1.6)
     rack (2.0.7)
+    rack-protection (2.0.5)
+      rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (5.2.3)
@@ -169,11 +178,14 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
+    redis (4.1.0)
     regexp_parser (1.4.0)
     responders (2.4.1)
       actionpack (>= 4.2.0, < 6.0)
       railties (>= 4.2.0, < 6.0)
     rubyzip (1.2.2)
+    rufus-scheduler (3.6.0)
+      fugit (~> 1.1, >= 1.1.6)
     sass (3.7.4)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -197,6 +209,16 @@ GEM
     selenium-webdriver (3.141.5926)
       childprocess (>= 0.5, < 2.0)
       rubyzip (~> 1.2, >= 1.2.2)
+    sidekiq (5.2.7)
+      connection_pool (~> 2.2, >= 2.2.2)
+      rack (>= 1.5.0)
+      rack-protection (>= 1.5.0)
+      redis (>= 3.3.5, < 5)
+    sidekiq-scheduler (3.0.0)
+      redis (>= 3, < 5)
+      rufus-scheduler (~> 3.2)
+      sidekiq (>= 3)
+      tilt (>= 1.4.0)
     simple_form (4.1.0)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
@@ -255,8 +277,11 @@ DEPENDENCIES
   mini_magick (~> 4.8)
   puma (~> 3.11)
   rails (~> 5.2.3)
+  redis (~> 4.0)
   sass-rails (~> 5.0)
   selenium-webdriver
+  sidekiq
+  sidekiq-scheduler
   simple_form
   sqlite3!
   turbolinks (~> 5)
