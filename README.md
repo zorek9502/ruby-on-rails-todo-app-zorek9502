@@ -33,4 +33,5 @@ Num | Feature | Notes
 - In the field :exe_path => change the path and save
 - ej. :exe_path => 'C:/Program Files/wkhtmltopdf/bin/wkhtmltopdf.exe'
 - Now we are going to be able to generate the PDF's
+- Redis server is required, if you dont have it installed enter here and locate the post by zangw and follow the instrucctions "https://stackoverflow.com/questions/6476945/how-do-i-run-redis-on-windows"
 - Ready to go and continue with How to run :).

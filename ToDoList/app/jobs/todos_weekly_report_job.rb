@@ -8,7 +8,7 @@ class TodosWeeklyReportJob < ApplicationJob
     user = User.find(user_id)
     #todos_report = TodosWeeklyReport.generate(user)
     todos_report = generate(user)
-    TodosWeeklyReportMailer.todos_report(user, todos_report).deliver_later
+    TodosWeeklyReportMailer.todos_report(user, todos_report).deliver
   end
 
   private
