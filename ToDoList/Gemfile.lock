@@ -94,8 +94,11 @@ GEM
     et-orbi (1.2.1)
       tzinfo
     execjs (2.7.0)
-    factory_bot (4.11.1)
-      activesupport (>= 3.0.0)
+    factory_bot (5.0.2)
+      activesupport (>= 4.2.0)
+    factory_bot_rails (5.0.2)
+      factory_bot (~> 5.0.2)
+      railties (>= 4.2.0)
     faker (1.9.3)
       i18n (>= 0.7)
     ffi (1.10.0-x64-mingw32)
@@ -281,7 +284,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   database_cleaner (~> 1.5)
   devise
-  factory_bot
+  factory_bot_rails
   faker
   graphicsmagick (~> 1.0, >= 1.0.5)
   jbuilder (~> 2.5)
