@@ -5,7 +5,7 @@
     <% else %>
       <%= image_tag "default-profile-picture.jpg", width:30, height:30, class:"rounded-circle"%>
     <% end %> 
-    <a class="navbar-brand mx-2 text-white"><%= current_user.username %></a>      
+    <div class="navbar-brand mx-2 text-white"><%= current_user.username %></div>      
     <% end %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
