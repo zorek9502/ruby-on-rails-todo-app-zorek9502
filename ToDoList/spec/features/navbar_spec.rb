@@ -19,6 +19,7 @@ feature "navbar" do
     sign_in user
     visit root_path
     expect(page).to have_css("nav.navbar.navbar-expand-lg.navbar-dark.bg-dark")
+    expect(page).to have_css("img.rounded-circle")
     expect(page).to have_css("ul.navbar-nav.mr-auto")
     expect(page).to have_css("div.navbar-brand.mx-2.text-white", :text => user.username)
     expect(page).to have_css("li.nav-item", :count => 3)
