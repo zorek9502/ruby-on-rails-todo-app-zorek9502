@@ -1,7 +1,7 @@
 <div class="jumbotron jumbotron-fluid text-center">
   <div class="container">
     <h1 class="display-4"><%=@task_list.title%></h1>
-    <%= link_to "Delete", @task_list, method: :delete, data: {confirm:"Are you sure?"}, class: "btn btn-outline-danger" %>
+    <%= link_to "Delete", @task_list, method: :delete,  class: "btn btn-outline-danger" %>
     <hr/>
     <% @tasks.each do |task|%>
     <ul class="list-group text-left">

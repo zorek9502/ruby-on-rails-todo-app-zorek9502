@@ -14,6 +14,7 @@ gem 'puma', '~> 3.11'
 gem 'bootstrap', '~> 4.3', '>= 4.3.1'
 gem 'sass-rails', '~> 5.0'
 gem 'jquery-rails'
+gem 'popper_js', '~> 1.14', '>= 1.14.5'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
@@ -56,9 +57,12 @@ gem 'redis', '~> 4.0'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'capybara', '~> 2.5'
+  gem 'capybara'
   gem 'rspec-rails', '~> 3.4'
   gem "factory_bot_rails"
+  #gem 'selenium-webdriver'
+  #gem "chromedriver-helper"
+  #gem "capybara-webkit"
 end
 
 group :development do

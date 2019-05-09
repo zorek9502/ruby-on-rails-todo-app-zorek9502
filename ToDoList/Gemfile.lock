@@ -280,7 +280,7 @@ DEPENDENCIES
   bootsnap (>= 1.1.0)
   bootstrap (~> 4.3, >= 4.3.1)
   byebug
-  capybara (~> 2.5)
+  capybara
   coffee-rails (~> 4.2)
   database_cleaner (~> 1.5)
   devise
@@ -291,6 +291,7 @@ DEPENDENCIES
   jquery-rails
   letter_opener
   mini_magick (~> 4.8)
+  popper_js (~> 1.14, >= 1.14.5)
   puma (~> 3.11)
   rails (~> 5.2.3)
   redis (~> 4.0)
