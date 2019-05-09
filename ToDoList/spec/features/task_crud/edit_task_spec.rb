@@ -3,7 +3,6 @@ require "rails_helper"
 feature "edit task" do
   before(:each) do
     @task = Task.first
-    @description = @task.description
     @task_list = TaskList.find(@task.task_list_id)
     @user = User.find(@task_list.user_id)
     sign_out @user

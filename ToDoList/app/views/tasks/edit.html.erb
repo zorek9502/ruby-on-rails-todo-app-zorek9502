@@ -7,7 +7,7 @@
   <div class="d-flex justify-content-around">
   <%= f.button :submit, 'Save', class: "btn btn-info" %>
 <% end %>
-  <%= link_to "Delete", task_list_task_path(params[:task_list_id], @task.id), method: :delete, data: {confirm:"Are you sure?"}, class: "btn btn-outline-danger" %>
+  <%= link_to "Delete", task_list_task_path(params[:task_list_id], @task.id), method: :delete, class: "btn btn-outline-danger" %>
   </div>
 </div>
 
