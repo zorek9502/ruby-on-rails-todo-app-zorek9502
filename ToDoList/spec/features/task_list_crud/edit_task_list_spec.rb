@@ -2,8 +2,7 @@ require "rails_helper"
 
 feature "edit the title of a task list" do
   before(:each) do
-    offset = rand(TaskList.count)
-    task_list = TaskList.offset(offset).first
+    task_list = TaskList.first
     user = User.find(task_list.user_id)
     sign_out user
     sign_in user

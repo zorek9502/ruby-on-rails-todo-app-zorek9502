@@ -9,7 +9,7 @@ feature "add task" do
     sign_out @user
     sign_in @user
   end
-  scenario "Delete a task list successfully" do
+  scenario "Add a task  successfully" do
     visit root_path
     click_link "To Do Lists"
     expect(page).to have_css("h1", :text => "#{@user.username} To Do Lists")
