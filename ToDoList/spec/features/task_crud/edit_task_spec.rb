@@ -1,18 +1,19 @@
 require "rails_helper"
 
 feature "edit task" do
+  let(:task) { FactoryBot.create(:task) }
   before(:each) do
-    @task = Task.first
-    @task_list = TaskList.find(@task.task_list_id)
+    @task_list = TaskList.find(task.task_list_id)
     @user = User.find(@task_list.user_id)
-    sign_out @user
+
+    @description = task.description
     sign_in @user
   end
   scenario "Edit a task description successfully" do
     access_to_taks()
-    path_task = "/task_lists/#{@task_list.id}/tasks/#{@task.id}/edit"
+    path_task = "/task_lists/#{@task_list.id}/tasks/#{task.id}/edit"
     find_link(href: path_task).click
-    expect(page).to have_current_path(edit_task_list_task_path(@task_list.id, @task.id))
+    expect(page).to have_current_path(edit_task_list_task_path(@task_list.id, task.id))
     fill_in "task[description]", with: "New task title"
     click_on("Save")
     expect(page).to have_current_path(task_list_path(@task_list.id))
@@ -21,9 +22,9 @@ feature "edit task" do
 
   scenario "Edit a task description empty field" do
     access_to_taks()
-    path_task = "/task_lists/#{@task_list.id}/tasks/#{@task.id}/edit"
+    path_task = "/task_lists/#{@task_list.id}/tasks/#{task.id}/edit"
     find_link(href: path_task).click
-    expect(page).to have_current_path(edit_task_list_task_path(@task_list.id, @task.id))
+    expect(page).to have_current_path(edit_task_list_task_path(@task_list.id, task.id))
     fill_in "task[description]", with: ""
     click_on("Save")
     expect(page).to have_content("Description can't be blank")
@@ -31,9 +32,9 @@ feature "edit task" do
 
   scenario "Mark a task as completed" do
     access_to_taks()
-    path_task = "/task_lists/#{@task_list.id}/tasks/#{@task.id}/edit"
+    path_task = "/task_lists/#{@task_list.id}/tasks/#{task.id}/edit"
     find_link(href: path_task).click
-    expect(page).to have_current_path(edit_task_list_task_path(@task_list.id, @task.id))
+    expect(page).to have_current_path(edit_task_list_task_path(@task_list.id, task.id))
     check("task[completed]")
     click_on("Save")
     expect(page).to have_current_path(task_list_path(@task_list.id))

@@ -1,20 +1,22 @@
 require "rails_helper"
 
 feature "Delete task list" do
+  let(:task) { FactoryBot.create(:task) }
   before(:each) do
-    @task = Task.first
-    @description = @task.description
-    @task_list = TaskList.find(@task.task_list_id)
+    @task_list = TaskList.find(task.task_list_id)
     @user = User.find(@task_list.user_id)
-    sign_out @user
+
+    @description = task.description
     sign_in @user
   end
 
   scenario "Delete a task list successfully" do
     access_to_taks()
-    path_task = "/task_lists/#{@task_list.id}/tasks/#{@task.id}/edit"
+    save_and_open_page
+    path_task = "/task_lists/#{@task_list.id}/tasks/#{task.id}/edit"
+    puts path_task
     find_link(href: path_task).click
-    expect(page).to have_current_path(edit_task_list_task_path(@task_list.id, @task.id))
+    expect(page).to have_current_path(edit_task_list_task_path(@task_list.id, task.id))
     click_link "Delete"
     expect(page).to have_current_path(task_list_path(@task_list.id))
     expect(page).not_to have_content(@description)
