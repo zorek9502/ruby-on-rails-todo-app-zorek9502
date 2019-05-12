@@ -100,8 +100,6 @@ GEM
       raabro (~> 1.1)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
-    graphicsmagick (1.0.6)
-      subexec
     i18n (1.6.0)
       concurrent-ruby (~> 1.0)
     jbuilder (2.8.0)
@@ -124,7 +122,6 @@ GEM
       mimemagic (~> 0.3.2)
     method_source (0.9.2)
     mimemagic (0.3.3)
-    mini_magick (4.9.3)
     mini_mime (1.0.1)
     mini_portile2 (2.4.0)
     minitest (5.11.3)
@@ -237,7 +234,6 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    subexec (0.2.3)
     thor (0.20.3)
     thread_safe (0.3.6)
     tilt (2.0.9)
@@ -280,11 +276,9 @@ DEPENDENCIES
   devise
   factory_bot_rails
   faker
-  graphicsmagick (~> 1.0, >= 1.0.5)
   jbuilder (~> 2.5)
   jquery-rails
   letter_opener
-  mini_magick (~> 4.8)
   pg (>= 0.18, < 2.0)
   popper_js (~> 1.14, >= 1.14.5)
   puma (~> 3.11)
