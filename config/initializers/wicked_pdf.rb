@@ -9,9 +9,10 @@
 # https://github.com/mileszs/wicked_pdf/blob/master/README.md
 
 WickedPdf.config = {
-  #:wkhtmltopdf => '/usr/local/bin/wkhtmltopdf',
-  #:layout => "pdf.html",
-  #:exe_path => 'C:\wkhtmltopdf\bin\wkhtmltopdf.exe'
-  #:exe_path => 'C:\Ruby26-x64\bin\wkhtmltopdf.exe'
+
+  #Uncomment this path if you are a  Linux or OSX  user
+  #exe_path: '/usr/local/bin/wkhtmltopdf'
+
+  #Default path for windows users
   :exe_path => 'C:\Program Files/wkhtmltopdf/bin/wkhtmltopdf.exe',
 }
