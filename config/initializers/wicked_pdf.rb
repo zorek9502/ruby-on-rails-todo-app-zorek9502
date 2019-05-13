@@ -11,8 +11,8 @@
 WickedPdf.config = {
 
   #Uncomment this path if you are a  Linux or OSX  user
-  #exe_path: '/usr/local/bin/wkhtmltopdf'
+  exe_path: "/usr/local/bin/wkhtmltopdf",
 
-  #Default path for windows users
-  :exe_path => 'C:\Program Files/wkhtmltopdf/bin/wkhtmltopdf.exe',
+#Default path for windows users
+#exe_path => 'C:\Program Files/wkhtmltopdf/bin/wkhtmltopdf.exe',
 }
